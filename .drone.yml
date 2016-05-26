@@ -2,9 +2,10 @@ cache:
   mount:
     - .git
 build:
-  image: plugins/drone-docker
+  image: docker
   privileged: true 
   commands:
+    - docker version
     - docker build --tag=node-test .
     - docker images
       
