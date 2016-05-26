@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.3
 MAINTAINER Suntharesan Mohan <mohan.kethees@gmail.com>
 
 ENV NPM_CONFIG_LOGLEVEL=info \
