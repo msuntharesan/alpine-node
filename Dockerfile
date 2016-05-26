@@ -4,7 +4,7 @@ ENV NPM_CONFIG_LOGLEVEL=info \
     NODE_VERSION=5.11.1
 
 RUN apk upgrade --update-cache \
-    && apk add --no-cache  --virtual .build-deps \
+    && apk add --virtual .build-deps \
         gcc \
         g++ \
         libc-dev \
