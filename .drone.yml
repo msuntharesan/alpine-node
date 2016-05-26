@@ -7,10 +7,10 @@ build:
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
   commands:
-    - version
-    # - docker info
-    # - docker build --tag=node-test .
-    # - docker images
+    - docker version
+    - docker info
+    - docker build --tag=node-test .
+    - docker images
       
 # publish:
 #   docker:

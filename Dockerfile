@@ -3,7 +3,8 @@ FROM alpine:edge
 ENV NPM_CONFIG_LOGLEVEL=info \
     NODE_VERSION=5.11.1
 
-RUN apk add --no-cache  --virtual .build-deps \
+RUN apk upgrade --update-cache \
+    && apk add --no-cache  --virtual .build-deps \
         gcc \
         g++ \
         libc-dev \
