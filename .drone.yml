@@ -5,6 +5,7 @@ build:
   image: docker
   privileged: true 
   commands:
+    - docker -d
     - docker version
     - docker build --tag=node-test .
     - docker images
