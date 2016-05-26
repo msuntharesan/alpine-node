@@ -1,32 +1,34 @@
 cache:
   mount:
     - .git
-# build:
-#   image: docker:dind
-#   privileged: true 
-#   commands:
-#     - docker version
-#     - docker info
-#     - docker build --tag=node-test .
-#     - docker images
+build:
+  image: docker:dind
+  privileged: true 
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+  commands:
+    - docker version
+    - docker info
+    - docker build --tag=node-test .
+    - docker images
       
-publish:
-  docker:
-    when:
-      branch: master
-      event: push
-    # registry: $$DOCKER_LOCAL
-    # username: $$DOCKER_USER
-    # password: $$DOCKER_PASS
-    # email: $$DOCKER_EMAIL
-    # repo: vc-portal/node
-    # insecure: true
-    # force_tag: true
-    tag:
-      - latest
-      - "$$BUILD_NUMBER"
-    file: Dockerfile
-    # load: .docker-cache/node-image.tar
-    # save:
-    #   destination: .docker-cache/node-image.tar
+# publish:
+#   docker:
+#     when:
+#       branch: master
+#       event: push
+#     registry: $$DOCKER_LOCAL
+#     username: $$DOCKER_USER
+#     password: $$DOCKER_PASS
+#     email: $$DOCKER_EMAIL
+#     repo: vc-portal/node
+#     insecure: true
+#     force_tag: true
+#     tag:
+#       - latest
+#       - "$$BUILD_NUMBER"
+#     file: Dockerfile
+#     load: .docker-cache/node-image.tar
+#     save:
+#       destination: .docker-cache/node-image.tar
       
